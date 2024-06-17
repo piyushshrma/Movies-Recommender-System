@@ -27,9 +27,18 @@ st.markdown("<h1 style='text-align: center; color: black;'>Movie Recommender Sys
 st.markdown("<h4 style='text-align: center; color: black;'>Find a similar movie from a dataset of 5,000 movies!</h4>", unsafe_allow_html=True)
 #st.markdown("<h4 style='text-align: center; color: black;'>Web App created by Piyush Sharma</h4>", unsafe_allow_html=True)
 
+import os
 
-movies = pickle.load(open('movies.pkl','rb'))
-similarity = pickle.load(open('similarity.pkl','rb'))
+movies = 'movies.pkl'
+similarity = 'similarity.pkl'
+if not os.path.isfile(movies):
+    print(f"File not found: {movies}")
+
+if not os.path.isfile(similarity):
+    print(f"File not found: {similarity}")
+
+# movies = pickle.load(open('movies.pkl','rb'))
+# similarity = pickle.load(open('similarity.pkl','rb'))
 
 movie_list = movies['title'].values
 selected_movie = st.selectbox(
