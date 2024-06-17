@@ -25,7 +25,15 @@ def recommend(movie):
 
 
 st.header('Movie Recommender System')
-movies = pickle.load(open('movies.pkl','rb'))
+import os
+
+file_path = 'movies.pkl'  # Adjust the path if necessary
+if os.path.isfile(file_path):
+    with open(file_path, 'rb') as f:
+        movies = pickle.load(f)
+else:
+    print(f"File not found: {file_path}")
+
 similarity = pickle.load(open('similarity.pkl','rb'))
 
 movie_list = movies['title'].values
