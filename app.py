@@ -28,8 +28,8 @@ st.markdown("<h4 style='text-align: center; color: black;'>Find a similar movie 
 #st.markdown("<h4 style='text-align: center; color: black;'>Web App created by Piyush Sharma</h4>", unsafe_allow_html=True)
 
 
-movies = pickle.load(open('model/movies.pkl','rb'))
-similarity = pickle.load(open('model/similarity.pkl','rb'))
+movies = pickle.load(open('movies.pkl','rb'))
+similarity = pickle.load(open('similarity.pkl','rb'))
 
 movie_list = movies['title'].values
 selected_movie = st.selectbox(
