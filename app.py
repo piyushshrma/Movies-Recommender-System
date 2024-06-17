@@ -27,12 +27,18 @@ def recommend(movie):
 st.header('Movie Recommender System')
 import os
 
-file_path = 'movies.pkl'  # Adjust the path if necessary
-if os.path.isfile(file_path):
-    with open(file_path, 'rb') as f:
+import pickle
+
+try:
+    with open('movies.pkl', 'rb') as f:
         movies = pickle.load(f)
-else:
-    print(f"File not found: {file_path}")
+    print("File loaded successfully")
+    print(movies)
+except ModuleNotFoundError as e:
+    print(f"ModuleNotFoundError: {e}")
+except Exception as e:
+    print(f"Error: {e}")
+
 
 similarity = pickle.load(open('similarity.pkl','rb'))
 
